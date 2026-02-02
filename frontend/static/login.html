@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/styles.css?v=7" />
+</head>
+<body class="page">
+  <main class="split">
+    <!-- Panel izquierdo: marca (CES / Telegestión) -->
+    <aside class="brand-panel" aria-label="Marca">
+      <div class="brand-stack">
+        <div id="appTitle" class="brand-title">CES</div>
+        <div id="appSubtitle" class="brand-subtitle">Telegestión</div>
+      </div>
+    </aside>
+
+    <!-- Panel derecho: formulario -->
+    <section class="login-panel" aria-label="Ingreso">
+      <div class="panel-top">
+        <button class="icon-btn" id="btnLang" type="button" title="Idioma">
+          <span class="icon" aria-hidden="true">
+            <!-- globe -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M2 12h20" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M12 2c2.5 2.7 4 6.1 4 10s-1.5 7.3-4 10c-2.5-2.7-4-6.1-4-10s1.5-7.3 4-10Z" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <span class="label">ES</span>
+        </button>
+
+        <button class="icon-btn" id="btnTheme" type="button" title="Cambiar tema">
+          <span class="icon" aria-hidden="true" id="themeIcon"></span>
+        </button>
+      </div>
+
+      <div class="login-form-wrap">
+        <h1 class="login-title">Iniciar sesión</h1>
+
+        <form id="loginForm" class="form" autocomplete="on">
+          <label class="field">
+            <span>Nombre de usuario</span>
+            <div class="input-wrap">
+              <span class="in-ico" aria-hidden="true">
+                <!-- user -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M20 21a8 8 0 0 0-16 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="1.7"/>
+                </svg>
+              </span>
+              <input id="username" type="text" autocomplete="username" required placeholder="Nombre de usuario" />
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Contraseña</span>
+            <div class="input-wrap">
+              <span class="in-ico" aria-hidden="true">
+                <!-- lock -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M6.5 11h11A2.5 2.5 0 0 1 20 13.5v6A2.5 2.5 0 0 1 17.5 22h-11A2.5 2.5 0 0 1 4 19.5v-6A2.5 2.5 0 0 1 6.5 11Z" stroke="currentColor" stroke-width="1.7"/>
+                </svg>
+              </span>
+              <input id="password" type="password" autocomplete="current-password" required placeholder="Contraseña" />
+              <button class="eye-btn" id="btnEye" type="button" title="Mostrar/Ocultar">
+                <!-- eye -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.7"/>
+                </svg>
+              </button>
+            </div>
+          </label>
+<div class="actions">
+            <button type="submit" class="btn-primary" id="btnLogin">
+              <span>Entrar</span>
+              <span aria-hidden="true" class="arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div id="msg" class="msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/theme.js?v=7"></script>
+  <script src="/js/login.js?v=7"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es" data-page="tecnica">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Técnica</title>
+  <link rel="stylesheet" href="/css/styles.css?v=34" />
+</head>
+<body class="page page-tecnica">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-panel">
+        <img class="brand-logo" src="/assets/img/coop-logo.png" alt="Logo cooperativa" />
+        <div class="brand-stack">
+          <div class="brand-subtitle">Telegestión</div>
+        </div>
+      </div>
+      <a class="topbar-link" href="/home.html">← Inicio</a>
+    </div>
+    <div class="topbar-right">
+      <div class="page-title">Técnica</div>
+      <button id="themeToggle" class="icon-button" title="Modo oscuro">
+        <span class="icon">☼</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- Card 1: acciones, búsqueda, método/fechas -->
+    <section class="card">
+      <div class="tech-actions">
+        <button id="btnAddUser" class="btn-secondary" type="button">Agregar usuario</button>
+      </div>
+
+      <div class="form-grid tech-form-grid">
+        <label class="field">
+          <span>Buscar</span>
+          <div class="input-wrap">
+            <span class="in-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <input id="searchInput" type="text" placeholder="NIS / Medidor / Nombre" />
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Método</span>
+          <div class="select-wrap">
+            <select id="methodSelect"></select>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Prioridad</span>
+          <div class="select-wrap">
+            <select id="prioritySelect">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </label>
+
+        <div class="leer-wrap">
+          <button id="btnLeer" class="btn-leer" type="button">
+            <span class="doc-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M14 2v6h6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Leer</span>
+          </button>
+        </div>
+
+        <label class="field" id="finiField">
+          <span>Fecha de inicio</span>
+          <div class="input-wrap">
+            <input id="finiInput" type="datetime-local" step="1" />
+          </div>
+        </label>
+
+        <label class="field" id="fendField">
+          <span>Fecha de fin</span>
+          <div class="input-wrap">
+            <input id="fendInput" type="datetime-local" step="1" />
+          </div>
+        </label>
+      </div>
+
+      <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    </section>
+
+    
+<!-- Card 2: datos del usuario/equipo -->
+<section class="card">
+  <div class="tech-info-grid">
+    <div class="tech-row">
+      <label class="field">
+        <span>NIS</span>
+        <div class="input-wrap"><input id="nisOut" type="text" readonly /></div>
+      </label>
+      <label class="field">
+        <span>Medidor</span>
+        <div class="input-wrap"><input id="medidorOut" type="text" readonly /></div>
+      </label>
+      <label class="field">
+        <span>Tarifa</span>
+        <div class="input-wrap"><input id="tarifaOut" type="text" readonly /></div>
+      </label>
+      <label class="field">
+        <span>Ruta</span>
+        <div class="input-wrap"><input id="rutaOut" type="text" readonly /></div>
+      </label>
+      <label class="field">
+        <span>Alim</span>
+        <div class="input-wrap"><input id="alimOut" type="text" readonly /></div>
+      </label>
+
+      <div class="tech-gis">
+        <button class="icon-btn" id="btnGIS" type="button" title="Georreferenciación">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+            <path d="M12 21s7-4.4 7-11a7 7 0 0 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M12 10.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="tech-row tech-row-full">
+      <label class="field">
+        <span>Nombre</span>
+        <div class="input-wrap"><input id="nombreOut" type="text" readonly /></div>
+      </label>
+    </div>
+
+    <div class="tech-row tech-row-full">
+      <label class="field">
+        <span>Dirección</span>
+        <div class="input-wrap"><input id="direccionOut" type="text" readonly /></div>
+      </label>
+    </div>
+  </div>
+</section>
+
+<!-- Card 3: gráfica + tabla -->
+    <section class="card">
+      <div class="results-head">
+        <h2 class="results-title">Gráfica</h2>
+        <div class="results-actions">
+          <button id="btnMax" class="btn-secondary" type="button" disabled>MAX</button>
+          <button id="btnCsv" class="btn-secondary" type="button" disabled>Descargar CSV</button>
+          <button id="btnXml" class="btn-secondary" type="button" disabled>Descargar XML</button>
+        </div>
+      </div>
+
+      <div class="plot-layout">
+        <div class="plot-wrap">
+          <div id="plotlyChart" class="plotly-wrap"></div>
+        </div>
+        <aside class="plot-legend" id="legend"></aside>
+      </div>
+
+      <div class="table-wrap" style="margin-top:12px;">
+        <table class="data-table" id="resultTable"></table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Agregar usuario -->
+  <div class="modal" id="userModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div id="modalTitle" class="modal-title">Agregar usuario</div>
+        <button class="icon-btn" type="button" data-close="1" title="Cerrar">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tech-user-grid">
+          <label class="field"><span>NIS</span><div class="input-wrap"><input id="uNis" type="text" /></div></label>
+          <label class="field"><span>Nombre</span><div class="input-wrap"><input id="uNombre" type="text" /></div></label>
+          <label class="field"><span>Medidor</span><div class="input-wrap"><input id="uMedidor" type="text" /></div></label>
+          <label class="field"><span>Dirección</span><div class="input-wrap"><input id="uDireccion" type="text" /></div></label>
+          <label class="field"><span>Tarifa</span><div class="input-wrap"><input id="uTarifa" type="text" /></div></label>
+          <label class="field"><span>Ruta</span><div class="input-wrap"><input id="uRuta" type="text" /></div></label>
+          <label class="field"><span>Coordenada</span><div class="input-wrap"><input id="uCoord" type="text" placeholder='-34.60,-58.38' /></div></label>
+        </div>
+        <div class="msg" id="modalMsg"></div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-secondary" type="button" data-close="1">Cancelar</button>
+        <button class="btn-primary" id="btnSaveUser" type="button">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/theme.js?v=2"></script>
+  <script src="/vendor/plotly.min.js?v=1"></script>
+  <script src="/js/tecnica.js?v=34"></script>
+</body>
+</html>

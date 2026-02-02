@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es" data-page="home">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inicio</title>
+  <link rel="stylesheet" href="/css/styles.css?v=7" />
+</head>
+<body class="page page-home">
+  <main class="home" role="main">
+    <div class="home-bg" aria-hidden="true"></div>
+    <div class="home-overlay" aria-hidden="true"></div>
+
+    <header class="home-header">
+      <div class="home-brand">
+        <div id="appTitle" class="home-brand-title">CES</div>
+        <div id="appSubtitle" class="home-brand-subtitle">Telegestión</div>
+      </div>
+
+      <div class="home-actions">
+        <button class="icon-btn" id="btnTheme" type="button" title="Cambiar tema">
+          <span class="icon" aria-hidden="true" id="themeIcon"></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="home-center" aria-label="Módulos">
+      <h1 class="home-title">Seleccione una categoría</h1>
+
+      <div class="glass-card">
+        <div id="modulesGrid" class="modules-grid" aria-label="Módulos"></div>
+      </div>
+
+      <div class="home-footer muted-small">
+        <span id="userPill" class="pill"></span>
+        <button id="btnLogout" class="link-btn" type="button">Cerrar sesión</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/theme.js?v=7"></script>
+  <script src="/js/home.js?v=7"></script>
+</body>
+</html>

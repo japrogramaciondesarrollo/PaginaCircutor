@@ -1,0 +1,40 @@
+{
+  "modules": [
+    {
+      "id": "tecnica",
+      "label": "Técnica",
+      "icon": "wrench",
+      "href": "/tecnica.html"
+    },
+    {
+      "id": "facturacion",
+      "label": "Facturación",
+      "icon": "receipt",
+      "href": "#facturacion"
+    },
+    {
+      "id": "medidores",
+      "label": "Medidores",
+      "icon": "gauge",
+      "href": "/medidores.html"
+    },
+    {
+      "id": "gis",
+      "label": "GIS (Georreferenciación)",
+      "icon": "map",
+      "href": "#gis"
+    },
+    {
+      "id": "reportes",
+      "label": "Reportes",
+      "icon": "barChart",
+      "href": "#reportes"
+    },
+    {
+      "id": "editar",
+      "label": "Agregar / editar",
+      "icon": "edit",
+      "href": "#editar"
+    }
+  ]
+}
