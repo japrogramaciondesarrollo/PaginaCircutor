@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es" data-page="georef">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Georreferenciación</title>
+  <link rel="stylesheet" href="/css/styles.css?v=22" />
+</head>
+<body class="page page-medidores">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="med-brand">
+        <div id="appTitle" class="med-brand-title">CES</div>
+        <div id="appSubtitle" class="med-brand-subtitle">Telegestión</div>
+      </div>
+      <h1 class="topbar-title">Georreferenciación</h1>
+    </div>
+    <div class="topbar-right">
+      <a class="topbar-link" href="/tecnica.html">← Técnica</a>
+      <button class="icon-btn" id="btnTheme" type="button" title="Cambiar tema">
+        <span class="icon" aria-hidden="true" id="themeIcon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2 class="results-title">Coordenadas</h2>
+      <div class="muted" id="coordText" style="margin-top:8px;"></div>
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn-secondary" id="btnMaps" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a>
+        <a class="btn-secondary" href="/tecnica.html">Volver</a>
+      </div>
+      <div class="muted" style="margin-top:10px; font-size:12px;">
+        * Esta pantalla es un placeholder. Más adelante podemos integrar un mapa embebido.
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/theme.js?v=2"></script>
+  <script>
+    if (window.__theme && typeof window.__theme.init === 'function') window.__theme.init();
+    const params = new URLSearchParams(location.search);
+    const coord = (params.get('coord') || '').trim();
+    const el = document.getElementById('coordText');
+    el.textContent = coord ? coord : 'Sin coordenadas.';
+    const a = document.getElementById('btnMaps');
+    if(coord){
+      const parts = coord.split(',').map(s => s.trim());
+      const q = parts.length >= 2 ? (parts[0] + ',' + parts[1]) : coord;
+      a.href = 'https://www.google.com/maps?q=' + encodeURIComponent(q);
+    } else {
+      a.classList.add('disabled');
+      a.href = '#';
+    }
+  </script>
+</body>
+</html>

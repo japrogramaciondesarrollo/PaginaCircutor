@@ -56,12 +56,9 @@ function meaningFor(code){
 function methodOptions(){
   // Basado en la lista de Postman/imagen. Ajustable.
   return [
-    // Órdenes
+    {value:"CIR7", label:"CIR7  Detalles", needsRange:false},
     {value:"B03", label:"B03  Corte / Reconexión", needsRange:false, isOrder:true},
     {value:"B03M", label:"B03  Masivo (Excel)", needsRange:false, isOrder:true},
-
-    // Pedidos
-    {value:"CIR7", label:"CIR7  Detalles", needsRange:false},
     {value:"S01", label:"S01  Valores instantáneos", needsRange:false},
     {value:"S02", label:"S02  Curva horaria", needsRange:true},
     {value:"S2B", label:"S2B  Curva horaria de perfil activo", needsRange:true},
@@ -72,7 +69,6 @@ function methodOptions(){
 }
 
 
-
 let _lastRows = null;
 let _lastRaw = null;
 let _sigMap = {};
@@ -81,42 +77,12 @@ let _sigMap = {};
 function renderMethodSelect(){
   const sel = document.getElementById('methodSelect');
   sel.innerHTML = '';
-
-  const opts = methodOptions();
-  const orders = opts.filter(o => o.isOrder);
-  const pedidos = opts.filter(o => !o.isOrder);
-
-  const ogOrders = document.createElement('optgroup');
-  ogOrders.label = 'Órdenes';
-  orders.forEach(o => {
+  methodOptions().forEach(o => {
     const opt = document.createElement('option');
     opt.value = o.value;
     opt.textContent = o.label;
-    ogOrders.appendChild(opt);
+    sel.appendChild(opt);
   });
-
-  const ogPedidos = document.createElement('optgroup');
-  ogPedidos.label = 'Pedidos';
-  pedidos.forEach(o => {
-    const opt = document.createElement('option');
-    opt.value = o.value;
-    opt.textContent = o.label;
-    ogPedidos.appendChild(opt);
-  });
-
-  // Si no hay órdenes (fallback), no usamos grupos.
-  if(orders.length){
-    sel.appendChild(ogOrders);
-    sel.appendChild(ogPedidos);
-  }else{
-    opts.forEach(o => {
-      const opt = document.createElement('option');
-      opt.value = o.value;
-      opt.textContent = o.label;
-      sel.appendChild(opt);
-    });
-  }
-
   sel.value = "CIR7";
 }
 
